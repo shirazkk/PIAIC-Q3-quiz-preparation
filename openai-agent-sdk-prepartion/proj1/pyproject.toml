@@ -1,0 +1,22 @@
+[project]
+name = "proj1"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Shiraz Ali", email = "shirazkk8@gmail.com" }
+]
+requires-python = ">=3.13"
+dependencies = [
+    "openai-agents>=0.0.17",
+]
+
+[project.scripts]
+proj1 = "proj1:main"
+customer = "proj1.customer_support_agent:main"
+stream = "proj1.streaming:main"
+handoff = "proj1.handoff:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
