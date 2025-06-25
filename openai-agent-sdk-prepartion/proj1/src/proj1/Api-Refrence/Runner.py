@@ -1,9 +1,12 @@
-from agents import Agent, Runner, set_tracing_disabled, OpenAIChatCompletionsModel, RunConfig, ModelProvider, ItemHelpers
+from agents import Agent, Runner, set_tracing_disabled, OpenAIChatCompletionsModel, RunConfig, ModelProvider, ModelSettings, TResponseInputItem, RawResponsesStreamEvent, RunItemStreamEvent,AgentUpdatedStreamEvent
 from openai import AsyncOpenAI
+from agents.result import RunResultBase
 from typing import cast
 import os
 from dotenv import load_dotenv
 from openai.types.responses import ResponseTextDeltaEvent
+from typing import Any
+import asyncio
 
 load_dotenv()
 
@@ -29,13 +32,15 @@ config = RunConfig(
     model_provider=cast(ModelProvider, external_client),
     tracing_disabled=True,
 
+
+
+
 )
 
 async def main():
     panacloud_agent: Agent = Agent(
             name="panacloud_agent",
             instructions="You are helpful assistant",
-            model=model,
         )
 
     response =  Runner.run_streamed(
@@ -53,4 +58,7 @@ async def main():
 if __name__ == "__main__":
     import asyncio
     asyncio.run(main())
+
+
+
 
