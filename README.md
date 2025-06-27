@@ -67,6 +67,7 @@ Advanced AI agent implementations using OpenAI's Agent SDK.
 - `streaming.py` - Streaming responses
 - `tracing.py` - Debugging and monitoring
 - `tools.py` - Custom tool implementations
+- `lifecycle.py` - agent lifecycle
 
 ### 4. 🛡️ Pydantic Data Validation
 Comprehensive data validation and settings management using Pydantic.
